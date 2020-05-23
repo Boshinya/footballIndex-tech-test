@@ -4,9 +4,10 @@ Feature: Generate random dates with different format
   I want to be able to generate random dates with different formats
   So I can have random dates generated on given range
 
+  Background:
+    Given The user is on the codeBeautify random date generator page
 
   Scenario Outline:Generation of random dates with Choosing Different Date Formats
-    Given The user is on the codeBeautify random date generator page
     When User enters 5 on input field to generate random dates
     And User selects date time format as "<dateTimeFormat>"
     And User wants to generate the dates within the following range
@@ -22,7 +23,6 @@ Feature: Generate random dates with different format
       | MM-DD-YYYY hh:mm:ss      |
 
   Scenario:Generation of random dates By clicking on 'Generate random dates' button
-    Given The user is on the codeBeautify random date generator page
     When User enters 5 on input field to generate random dates
     And User selects date time format as "YYYY-DD-MM hh:mm:ss"
     And User wants to generate the dates within the following range
@@ -32,7 +32,6 @@ Feature: Generate random dates with different format
     Then User should see different random dates generated
 
   Scenario:Generation of random dates By selecting Custom Date Format
-    Given The user is on the codeBeautify random date generator page
     When User enters 5 on input field to generate random dates
     And User selects date time format as "Custom date format"
     And User enter Custom date format as "YYYY-MM-DD hh:mm:ss"
@@ -44,6 +43,5 @@ Feature: Generate random dates with different format
     And User should see generated dates within the selected range
 
   Scenario: Generation of random dates with Invalid inputs on Number of Dates field
-    Given The user is on the codeBeautify random date generator page
     When User enters 0 on input field to generate random dates
     Then User should see 0 random dates generated
