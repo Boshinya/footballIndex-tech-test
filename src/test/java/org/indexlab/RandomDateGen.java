@@ -7,6 +7,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.Select;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.NoSuchElementException;
@@ -67,8 +68,11 @@ public class RandomDateGen extends Driver {
     }
 
     public List<String> getOutputDates() {
-        String[] dates = outputDates.getAttribute("value").split("\n+");
-        return  Arrays.asList(dates);
+        if(outputDates.getAttribute("value").isEmpty()) {
+             return new ArrayList<>();
+        } else {
+            return Arrays.asList(outputDates.getAttribute("value").split("\n+"));
+        }
     }
 
     public void clickOnRandomGeneratorButton() {

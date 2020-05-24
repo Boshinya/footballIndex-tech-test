@@ -1,4 +1,4 @@
-@random-date-gen
+@random-date-gen @test
 Feature: Generate random dates with different format
   As an User
   I want to be able to generate random dates with different formats
@@ -42,6 +42,11 @@ Feature: Generate random dates with different format
     And User should see date time in selected format
     And User should see generated dates within the selected range
 
-  Scenario: Generation of random dates with Invalid inputs on Number of Dates field
-    When User enters 0 on input field to generate random dates
+  Scenario Outline: Generation of random dates with Invalid inputs on Number of Dates field
+    When User enters <input> on input field to generate random dates
     Then User should see 0 random dates generated
+    Examples:
+      | input |
+      | 0     |
+      | -10   |
+

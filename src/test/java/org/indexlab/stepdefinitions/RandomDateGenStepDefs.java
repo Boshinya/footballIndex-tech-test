@@ -36,7 +36,7 @@ public class RandomDateGenStepDefs {
         randomDateGen.goToCodeBeautifyUrl();
     }
 
-    @When("^User enters (\\d+) on input field to generate random dates$")
+    @When("^User enters (.*) on input field to generate random dates$")
     public void user_wants_to_generate_random_dates(int number) {
         randomDateGen.enterNumberOfDatesToBeGenerated(number);
     }
@@ -66,11 +66,7 @@ public class RandomDateGenStepDefs {
     @Then("^User should see (\\d+) random dates generated$")
     public void user_should_see_random_dates_generated_with_the_selected_range(int expectedDateSize) {
         actualDates = randomDateGen.getOutputDates();
-        if(expectedDateSize ==0) {
-            assertThat("Number of Dates generated should be same as expected ",actualDates.size(),is(1));
-        } else {
-            assertThat("Number of Dates generated should be same as expected ",actualDates.size(),is(expectedDateSize));
-        }
+        assertThat("Number of Dates generated should be same as expected ",actualDates.size(),is(expectedDateSize));
     }
 
     @Then("^User should see date time in selected format$")
