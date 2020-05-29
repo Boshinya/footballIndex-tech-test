@@ -1,4 +1,4 @@
-package org.indexlab;
+package org.indexlab.pageObjects;
 
 import org.indexlab.utilities.Driver;
 import org.indexlab.utilities.TestContext;
